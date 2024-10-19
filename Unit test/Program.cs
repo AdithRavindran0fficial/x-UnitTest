@@ -1,4 +1,7 @@
 
+using Unit_test.Repository;
+using Unit_test.Services;
+
 namespace Unit_test
 {
     public class Program
@@ -8,7 +11,9 @@ namespace Unit_test
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+           
+            builder.Services.AddSingleton<IUserRepo,UserRepo>();
+            builder.Services.AddSingleton<IUserService,UserService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
